@@ -544,7 +544,7 @@ def security():
         return e.edge(cid, label, EDGE + extra, source=a, target=b)
 
     S2("p_start", "<b>Authenticated request reaches a DRF view</b>", 420, 140, 300, 50, ok)
-    S2("p_default", "permission_classes (default <b>IsAuthenticated</b>; 23 routes use AllowAny)", 420, 230, 300, 70)
+    S2("p_default", "permission_classes (default <b>IsAuthenticated</b>; 21 API routes declare AllowAny)", 420, 230, 300, 70)
     S2("p_mixin", "View uses <b>MethodPermissionMixin</b>?<br>(118 routes)", 400, 350, 340, 90, dec)
     S2("p_inline", "No mixin: the handler / service calls InstitutionPermission.require(...) or user.has_permission(...) "
        "itself, or performs no code-level check", 840, 360, 320, 80)

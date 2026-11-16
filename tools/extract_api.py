@@ -94,6 +94,8 @@ for route, p in walk(get_resolver().url_patterns):
         "method_permissions": {k: (list(v) if isinstance(v, (tuple, list)) else v) for k, v in mp.items()} if isinstance(mp, dict) else None,
         "permission_codes": sorted(set(PERM_RE.findall(src))),
         "throttle_scope": getattr(cls, "throttle_scope", None),
+        "partner_key_in_handler": "PartnerSystemAuthentication" in src or "authenticated_system" in src,
+        "inline_permission_check": "InstitutionPermission" in src or "has_permission(" in src,
         "models": sorted(models_in(src, module)),
         "tables": sorted(MODELS[m] for m in models_in(src, module)),
         "source_lines": len(src.splitlines()),
