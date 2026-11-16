@@ -58,7 +58,7 @@ Reading the ERDs:
 | `flows/seq-performance-report-submission-and-review.drawio` | Assignment generation, report submission, entry review, finalisation |
 | `flows/seq-scheduled-report-email.drawio` | Beat-driven report generation, PDF, e-mail delivery, cleanup |
 | `flows/seq-notification-delivery.drawio` | Notification creation, partner callback, REST and SSE delivery |
-| `flows/state-approval-status.drawio` | `approval_status` lifecycle shared by 34 approvable tables |
+| `flows/state-approval-status.drawio` | `approval_status` lifecycle shared by 32 approvable tables |
 | `flows/state-approval-task.drawio` | `ApprovalTask.status` and `Approval.status` |
 | `flows/state-performance-report.drawio` | `PerformanceReport.status` and `PerformanceReportEntry.status` |
 | `flows/state-requested-report-instance.drawio` | `PerformanceRequestedReportInstance.status` |
@@ -172,3 +172,4 @@ What updates by itself and what does not:
 - **Architecture, security, sequence and state diagrams** are modelled by hand inside `gen_architecture.py` and `gen_flows.py`; only the layout is computed. When the code they describe changes, edit the content in those scripts and rerun them. The import matrix in `gen_architecture.py` (`IMPORTS`) is also a hand-copied count.
 - **Manual edits in draw.io are overwritten** the next time a generator runs. Either change the generator, or stop regenerating that file.
 - Cell ids are stable (`tbl_<table>`, `col_<table>_<column>`, `fk_<table>_<column>`), so regenerated files diff cleanly.
+- The VS Code draw.io extension rewrites a file in its own indented format when it saves it. That produces a large diff with no real change; rerunning the generator restores the original formatting.
